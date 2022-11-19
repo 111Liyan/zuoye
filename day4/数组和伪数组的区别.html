@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 伪数组的定义
+    // 拥有length属性，其他属性（索引）为非负整数，不具有数组所具的方法
+    // 数组里的定义
+    // 有序排列的同类数据元素的集合称为数组
+    // 它里面的索引的作用：查找元素
+    // 它里面的长度的作用：记录数组有多少元素
+    // 伪数组存在的意义
+    // 让一些对象也可以使用数组的方法，可以通过call(),bind(),apply()方法实现
+    // 注意，方法的返回值类型不会改变，防护数组的还是回返回数组
+    // 区别：
+    // 伪数组没有Array.prototype,它只是一个对象
+    // 伪数组的索引就是那些键值对的key，没有真正的顺序可言，长度是手动设置的
+    // 数组有Array.prototype,它是对象的同时，也是数组
+    // 数组的索引和长度时内置属性
+    
+
+    // let arr=['1','2','3']
+    let fake={
+        '0':1,
+        '1':2,
+        '2':3,
+        length:3
+    }
+    // let arr=[]
+    // fot(let i =0;i<fake.length;i++){
+
+    // }
+
+    // console.log(arr[1]);
+    // console.log(fake[1]);
+    // console.log(arr.length);
+    // console.log(fake.length);
+</script>
+</html>
