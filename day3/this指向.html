@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div>
+        123
+    </div> -->
+</body>
+<script>
+    // 1.在普通函数中函数的this指向调用函数的对象
+    // 1
+    // let el = document.getElementById('div')
+    // function fn() {
+    //   console.log(this)
+    // }
+    // el.onclick = function() {
+    //   console.log(this)
+    // }
+     // console.log(window)
+    // window.fn()
+    // let obj = {
+        // name: '张三',
+    //   run: function() {
+    //     console.log(this)
+    //   }
+    // }
+    // obj.run()
+    // setTimeout(function() {
+    //   console.log(this)
+    // }, 1000)
+
+
+     // 2
+    // let el = document.getElementById('div')
+    // function fn() {
+    //   console.log(this)
+    // }
+     // el.onclick = function() {
+    //   console.log(this)
+    // }
+     // console.log(window)
+    // window.fn()
+    // let obj = {
+        // name: '张三',
+    //   run: function() {
+    //     console.log(this)
+    //   }
+    // }
+    // obj.run()
+    // setTimeout(function() {
+    //   console.log(this)
+    // }, 1000)
+
+
+     // 3
+    // let el = document.getElementById('div')
+    // function fn() {
+    //   console.log(this)
+    // }
+     // el.onclick = function() {
+    //   console.log(this)
+    // }
+     // console.log(window)
+    // window.fn()
+    // let obj = {
+        // name: '张三',
+    //   run: function() {
+    //     console.log(this)
+    //   }
+    // }
+    // obj.run()
+    // setTimeout(function() {
+    //   console.log(this)
+    // }, 1000)
+
+
+    // 2.构造函数内部的this指向构造函数的实例化对象
+    // 1
+    // function Person() {
+    //   this.name = '张三'
+    // }
+    // let person = new Person()
+    // console.log(person)
+    // let obj = {}
+    // obj.name = '张三'
+
+
+    // 2 
+
+    // function Person() {
+    //   this.name = '张三'
+    // }
+    // let person = new Person()
+    // console.log(person)
+    // let obj = {}
+    // obj.name = '张三'
+
+
+    // 3
+
+    // function Person() {
+    //   this.name = '张三'
+    // }
+    // let person = new Person()
+    // console.log(person)
+    // let obj = {}
+    // obj.name = '张三'
+
+
+    // 3.箭头函数内部的this指向始终指向箭头函数声明时所在的对象
+    // 1
+    // let obj = {
+    //   name: '张三',
+    //   run: function() {
+    //     // var _this = this
+    //     setTimeout(function() {
+    //       // _this.name = '李四'
+    //       // console.log(obj)
+    //       console.log(this)
+    //       // setTimeout(() => {
+    //       //   console.log(this)
+    //       // })
+    //     }.call(obj))
+    //   }
+    // }
+    // obj.run()
+
+
+    // 2
+    // let obj = {
+    //   name: '张三',
+    //   run: function() {
+    //     // var _this = this
+    //     setTimeout(function() {
+    //       // _this.name = '李四'
+    //       // console.log(obj)
+    //       console.log(this)
+    //       // setTimeout(() => {
+    //       //   console.log(this)
+    //       // })
+    //     }.call(obj))
+    //   }
+    // }
+    // obj.run()
+
+
+    // 3
+    // let obj = {
+    //   name: '张三',
+    //   run: function() {
+    //     // var _this = this
+    //     setTimeout(function() {
+    //       // _this.name = '李四'
+    //       // console.log(obj)
+    //       console.log(this)
+    //       // setTimeout(() => {
+    //       //   console.log(this)
+    //       // })
+    //     }.call(obj))
+    //   }
+    // }
+    // obj.run()
+</script>
+
+</html>
