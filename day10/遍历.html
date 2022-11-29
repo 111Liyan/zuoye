@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="./vue.js"></script>
+<body>
+
+   <div id="app">
+    <!-- <button @click="add">点击添加</button> -->
+    <!-- <ul>
+        <li v-for="(item,index) of list" :key="index">{{item.name}}--{{item.age}}
+            <input type="text">
+        </li>
+    </ul> -->
+
+
+    <!-- <button @click="add">点击添加</button> -->
+
+    <!-- <ul>
+        <li v-for="(item,index) of list" :key="index">
+            {{item.name}}--{{item.age}}
+        </li>
+    </ul> -->
+
+    <button @click="add">点击添加</button>
+    <ul>
+        <li v-for="(item,index) of list">
+            {{item.name}}--{{item.age}}
+        </li>
+    </ul>
+   </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            
+                // list:[
+                //     {
+                //         id:1,
+                //         name:'张三',
+                //         age:14
+                //     },
+                //     {
+                //         id:2,
+                //         name:'李四',
+                //         age:15
+                //     },
+                //     {
+                //         id:3,
+                //         name:'王五',
+                //         age:17
+                //     }
+                // ]
+
+
+
+                // list:[
+                //     {
+                //         id:1,
+                //         name:'张三',
+                //         age:12
+                //     },
+                //     {
+                //         id:2,
+                //         name:'李四',
+                //         age:13
+                //     },
+                //     {
+                //         id:3,
+                //         name:'王五',
+                //         age:15
+                //     }
+                // ]
+
+                methods: {
+                    // add(){
+                    //     this.list.unshift({id:4,name:'老刘',age:30})
+                    // }
+
+                     // add(){
+                    //     this.list.unshift({id:4,name:'老刘',age:30})
+                    // }
+
+                     add(){
+                        this.list.unshift({id:4,name:'老刘',age:30})
+                    }
+                },
+        },
+    })
+</script>
+
+</html>
