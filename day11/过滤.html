@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+   <div id="app">
+    <input type="text" v-model="input" @keydown.enter="add" placeholder="请输入内容">
+    <ul>
+        <li v-for="item of listsd" :key="item.id">
+            {{item.name}}-{{item.age}}
+        </li>
+    </ul>
+   </div>
+</body>
+<script>
+new Vue({
+    el:'#app',
+    data: {
+        input:'',
+       list:[
+        {
+            id:1,
+            name:'张三',
+            age:17
+        },
+        {
+            id:2,
+            name:'李四',
+            age:14
+        },
+        {
+            id:3,
+            name:'王五',
+            age:16
+        }
+       ],
+       listsd:[]
+    },
+    created() {
+        this.add()
+    },
+    methods: {
+        // add(){
+        //     // console.log(1111);
+        //     this.listsd=this.list.filter(item=>item.name.includes(this.input))
+        // },
+        add(){
+            this.listsd=this.list.filter(item=>item.name.includes(this.input))
+        }
+    },
+})
+</script>
+</html>
