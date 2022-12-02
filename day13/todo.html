@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      padding: 50px 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(90deg, #ffafbd, #ffc3a0);
+      background-repeat: no-repeat;
+    }
+    .box {
+      padding: 20px 40px;
+      text-align: center;
+      width: 440px;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      background: #f2f2f2;
+      box-sizing: border-box;
+    }
+    .top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .img {
+      width: 80px;
+      height: 80px;
+      margin-right: 10px;
+    }
+    .bth {
+      width: 100px;
+      height: 50px;
+      transform: rotate(3deg);
+      font-size: 17px;
+      background-color: #fe7345;
+      color: #fff;
+      border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+      border: none;
+    }
+    .con {
+      margin-top: 25px;
+      /* height: 120px; */
+    }
+    h3 {
+      text-align: center;
+      margin: 10px;
+    }
+
+    .cont {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-right: 15px;
+      margin-bottom: 20px;
+      height: 40px;
+    }
+    .inp {
+      width: 236.5px;
+      height: 29px;
+      border: 0;
+      border-bottom: 3px dashed #fe7345;
+      padding: 5px 0 3px;
+      font-size: 18px;
+      background: transparent;
+      outline: none;
+      height: 35px;
+    }
+    .btn {
+      position: relative;
+      transform: rotate(4deg);
+      border-radius: 6px;
+      transition: transform 0.25s;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+    }
+    .add {
+      position: relative;
+      display: block;
+      font-size: 16.5px;
+      padding: 0.34em 0.84em;
+      border: 2px solid #494a4b;
+      border-radius: inherit;
+      background-color: #fff;
+    }
+    .btn::before {
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      transform: scaleY(1.1);
+      border: 1px solid #494a4b;
+      border-radius: inherit;
+      transform-origin: top;
+      background-image: url(data:image/png;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==);
+      background-color: #fe7345;
+      transition: transform 0.25s;
+    }
+    .ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 5px;
+    }
+    .p {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px 8px 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .boot {
+      display: flex;
+      justify-content: center;
+    }
+    .imgs {
+      width: 16px;
+      height: 22px;
+    }
+    .span {
+      color: #b6b7b7;
+      font-size: 14px;
+    }
+    @keyframes btn {
+      0% {
+        transform: rotate(3deg);
+      }
+    }
+    .btn:active {
+      animation: btn 0.6s;
+      height: 30px;
+      transform: rotate(0deg);
+      box-shadow: 0px 0px 0px #000;
+    }
+    .bths {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 100px;
+      font-size: 12px;
+      white-space: nowrap;
+      display: none;
+    }
+    .ths {
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .fage{
+      /* 动画先隐藏，再旋转 */
+      -webkit-animation: zoom-123cabf7 .2s ease-in-out;
+      animation:zoom-123cabf7 .2s ease-in-out ;
+    }
+    @-webkit-keyframes zoom-123cabf7{
+      0%{
+        /* 透明度 */
+        opacity: 0;
+        /* 缩放 */
+        -webkit-transform: scale(0);
+        -webkit-transform: rotateX(90deg);
+      }
+      100%{
+        opacity: 1;
+        -webkit-transform: scale(1);
+      }
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div class="top">
+        <img class="img" src="./note.75134fb0.svg" alt="" />
+        <button class="bth">To-Do List</button>
+      </div>
+      <div class="con">
+        <h3>~Today l need to~</h3>
+        <div class="aop">
+          <div class="cont">
+            <input type="text" placeholder="Add new todo..." class="inp" />
+            <button type="submit" class="btn">
+              <span class="add">Submit</span>
+              
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="ul"></ul>
+      <div class="fool">
+        <div class="boot">
+          <img class="imgs" src="./img.png" alt="" />
+          <span class="span">Congrat you have no more tasks to do</span>
+        </div>
+        <div class="bths">
+          <p><span class="num">0</span>item left</p>
+          <div class="ths">
+            <p class="all">All</p>
+            <p class="active">Active</p>
+            <p class="comple">Completed</p>
+          </div>
+          <p class="dels">Clear completed</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var inp = document.querySelector(".inp");
+    var ul = document.querySelector(".ul");
+    var boot = document.querySelector(".boot");
+    var bths = document.querySelector(".bths");
+    var num = document.querySelector(".num");
+    var all = document.querySelector(".all");
+    var active = document.querySelector(".active");
+    var comple = document.querySelector(".comple");
+    var flag = false;
+    inp.onkeydown = function () {
+      if (event.keyCode == 13) {
+        if (inp.value == "") {
+          alert("内容不能为空");
+          return false;
+        } else {
+          this.flag = true;
+          boot.style.display = "none";
+          bths.style.display = "block";
+          bths.style.display = "flex";
+          var li = document.createElement("li");
+          li.innerHTML = ` <p class="p">
+            <input type="checkbox" class="chech"/>
+                <span>${inp.value}</span>
+            </p>
+            <p class="del">x</p>`;
+          ul.appendChild(li);
+          inp.value = "";
+          num.innerHTML = ul.children.length;
+          all.style.color = "#fff";
+          all.style.backgroundColor = "#fe7345";
+        }
+      }
+    };
+    var add = document.querySelector(".add");
+    add.onclick = function () {
+      if (inp.value == "") {
+        alert("内容不能为空");
+        return false;
+      } else {
+        this.flag = true;
+        boot.style.display = "none";
+        bths.style.display = "block";
+        bths.style.display = "flex";
+        var li = document.createElement("li");
+        li.innerHTML = ` <p class="p">
+          <input type="checkbox" class="chech"/>
+                <span>${inp.value}</span>
+            </p>
+            <p class="del">x</p>`;
+        ul.appendChild(li);
+        inp.value = "";
+        num.innerHTML = ul.children.length;
+        all.style.color = "#fff";
+        all.style.backgroundColor = "#fe7345";
+      }
+    };
+    function num() {
+        let nums = 0
+        let num1 = 0
+        for (let i = 0; i < ul.children.length; i++) {
+            if (ul.children[i].className != 'active') {
+                ++nums
+            } else {
+                ++num1
+            }
+        }
+        console.log(nums);
+        num.innerText = nums
+        if (nums == ul.children.length) {
+            active.style.display = 'none'
+            completed.style.display = 'none'
+            dels.style.display = 'none'
+        } else {
+            active.style.display = ''
+            completed.style.display = ''
+            dels.style.display = ''
+        }
+        if (num1 == ul.children.length) {
+            completed.style.display = 'none'
+            active.style.display = 'none'
+        }
+        console.log(num1);
+        if (ul.children.length == 0) {
+          bths.style.display = 'none'
+            boot.style.display = 'flex'
+        }
+    }
+    ul.onclick = function (e) {
+      if (e.target.className == "del") {
+        e.target.parentNode.remove();
+      }
+      if (ul.children.length == 0) {
+        boot.style.display = "block";
+        bths.style.display = "none";
+      }
+      // 切换状态
+      if (e.target.className == "chech") {
+        if (e.target.checked) {
+          e.target.parentNode.parentNode.className='fage'
+          e.target.parentNode.style.textDecoration = "line-through";
+          e.target.parentNode.style.border = "0";
+          // 改变父元素的样式
+          e.target.parentNode.parentNode.style.backgroundColor = "#fe7345";
+          e.target.parentNode.parentNode.style.color = "#fff";
+          // 改变自身复选框的样式
+          e.target.style.backgroundColor = "#fe7345";
+          e.target.style.border = "0";
+        } else {
+          e.target.parentNode.style.textDecoration = "none";
+          e.target.parentNode.parentNode.style.backgroundColor = "";
+          e.target.parentNode.parentNode.style.color = "#000";
+        }
+        // num()
+      }
+      
+    };
+    var dels = document.querySelector('.dels');
+    dels.onclick = function () {
+        for (var i = 0; i < ul.children.length; i++) {
+            if (ul.children[i].children[0].children[0].checked) {
+                ul.removeChild(ul.children[i])
+                i--
+            }
+        }
+        
+        
+        if (ul.children.length == 0) {
+            boot.style.display = 'block'
+            bths.style.display='none'
+            ul.style.display = 'none'
+           
+        }
+        // num()
+    }
+    //tab切换
+    all.onclick = function (e) {
+        e.target.style.color = '#fff';
+        e.target.style.backgroundColor = '#fe7345';
+        active.style.color = ''
+        active.style.backgroundColor = ''
+        comple.style.color = ''
+        comple.style.backgroundColor = ''
+        for (var i = 0; i < ul.children.length; i++) {
+            ul.children[i].style.display = 'flex'
+        }
+    }
+    active.onclick = function (e) {
+        // 把all的样式清空
+        all.style.color = ''
+        all.style.backgroundColor = ''
+        comple.style.color = ''
+        comple.style.backgroundColor = ''
+        e.target.style.color = '#fff'
+        e.target.style.backgroundColor = '#fe7345'
+        for (var i = 0; i < ul.children.length; i++) {
+            if (ul.children[i].children[0].children[0].checked) {
+                ul.children[i].style.display = 'none'
+            } else {
+                ul.children[i].style.display = 'flex'
+            }
+        }
+    }
+    comple.onclick = function (e) {
+        all.style.color = ''
+        all.style.backgroundColor = ''
+        active.style.color = ''
+        active.style.backgroundColor = ''
+        e.target.style.color = '#fff'
+        e.target.style.backgroundColor = '#fe7345'
+        for (var i = 0; i < ul.children.length; i++) {
+            if (ul.children[i].children[0].children[0].checked) {
+                ul.children[i].style.display = 'flex'
+            } else {
+                ul.children[i].style.display = 'none'
+            }
+        }
+    }
+  </script>
+</html>
