@@ -1,0 +1,84 @@
+{
+	"data": {
+			"total": 50,
+			"pagenum": "1",
+			"goods": [
+					{
+							"goods_id": 144,
+							"goods_name": "【18年2月到期】Culturelle 康萃乐 婴幼儿益生菌粉 30包 0岁以上可用 美国直采",
+							"goods_price": 119,
+							"goods_number": 100,
+							"goods_weight": 1,
+							"goods_state": null,
+							"add_time": 1512954923,
+							"upd_time": 1512954923,
+							"hot_mumber": 0,
+							"is_promote": false
+					},
+					{
+							"goods_id": 1444,
+							"goods_name": "Gerber 嘉宝 婴幼儿辅食零食全麦星星泡芙 苹果草莓口味 三段 8个月以上 42g 美国直采",
+							"goods_price": 34,
+							"goods_number": 100,
+							"goods_weight": 1,
+							"goods_state": null,
+							"add_time": 1512954923,
+							"upd_time": 1512954923,
+							"hot_mumber": 0,
+							"is_promote": false
+					},
+					{
+							"goods_id": 166,
+							"goods_name": "Peppa Pig 小猪佩奇 牛奶曲奇饼干 25g/袋",
+							"goods_price": 4,
+							"goods_number": 100,
+							"goods_weight": 1,
+							"goods_state": null,
+							"add_time": 1512954923,
+							"upd_time": 1512954923,
+							"hot_mumber": 0,
+							"is_promote": false
+					},
+					{
+							"goods_id": 1666,
+							"goods_name": "亨氏Heinz 宝宝面条 优加营养西兰花香菇面条336g（电商超值装） 6个月以上至36个月适用 宝宝辅食",
+							"goods_price": 26,
+							"goods_number": 100,
+							"goods_weight": 1,
+							"goods_state": null,
+							"add_time": 1512954923,
+							"upd_time": 1512954923,
+							"hot_mumber": 0,
+							"is_promote": false
+					},
+					{
+							"goods_id": 16666,
+							"goods_name": "亨氏Heinz 宝宝果汁泥 乐维滋果汁泥-苹果黑加仑120g 1至3岁宝宝适用 宝宝辅食 创新立袋，锁鲜便携",
+							"goods_price": 5,
+							"goods_number": 100,
+							"goods_weight": 1,
+							"goods_state": null,
+							"add_time": 1512954923,
+							"upd_time": 1512954923,
+							"hot_mumber": 0,
+							"is_promote": false
+					},
+					{
+							"goods_id": 166666,
+							"goods_name": "亨氏Heinz 佐餐泥 安心肉泥套餐113g*3 7至36个月适用 宝宝辅食 质地细腻 营养锁鲜 便利贴心",
+							"goods_price": 31,
+							"goods_number": 100,
+							"goods_weight": 1,
+							"goods_state": null,
+							"add_time": 1512954923,
+							"upd_time": 1512954923,
+							"hot_mumber": 0,
+							"is_promote": false
+					}
+			]
+	},
+	"meta": {
+			"msg": "获取成功",
+			"status": 200
+	}
+}

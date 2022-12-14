@@ -1,0 +1,57 @@
+{
+	"data": {
+		"totalpage": 5,
+		"pagenum": 4,
+		"users": [
+			{
+				"id": 25,
+				"username": "tige117",
+				"mobile": "18616358651",
+				"type": 1,
+				"email": "tige112@163.com",
+				"create_time": "2017-11-09T20:36:26.000Z",
+
+				"mg_state": true,
+				"role_name": "炒鸡管理员"
+			},
+			{
+				"id": 255,
+				"username": "张三",
+				"mobile": "1861111111",
+				"type": 1,
+				"email": "bgrhfgs112@163.com",
+				"create_time": "2017-11-09T20:36:26.000Z",
+
+				"mg_state": true,
+				"role_name": "超级管理员"
+			},
+			{
+				"id": 2555,
+				"username": "王五",
+				"mobile": "1862222222",
+				"type": 1,
+				"email": "bgrhfgs112@163.com",
+				"create_time": "2017-11-09T20:36:26.000Z",
+
+				"mg_state": true,
+				"role_name": "超级管理员"
+			},
+			{
+				"id": 2556,
+				"username": "老六",
+				"mobile": "1866666666",
+				"type": 1,
+				"email": "bgrhfgs112@163.com",
+				"create_time": "2017-11-09T20:36:26.000Z",
+
+				"mg_state": true,
+				"role_name": "超级管理员"
+			}
+
+		]
+	},
+	"meta": {
+		"msg": "获取成功",
+		"status": 200
+	}
+}

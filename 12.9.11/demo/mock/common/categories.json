@@ -1,0 +1,17 @@
+{
+	"data": {
+			"id": 20,
+			"options": "tige1200",
+			"value": "zhinan",
+			"mobile": "test",
+			"label":"指南",
+			"children":[{
+				"value":"yizhi",
+				"label":"一致"
+			}]
+	},
+	"meta": {
+			"msg": "用户创建成功",
+			"status": 201
+	}
+}

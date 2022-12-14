@@ -1,0 +1,158 @@
+{
+	"data": [
+			{
+					"id": 30,
+					"roleName": "主管",
+					"one":"一级",
+					"effective":1,
+					"roleDesc": "技术负责人",
+					"children": [
+							{
+								"roleName": "主管",
+								"id": 101,
+									"authName": "商品管理",
+									"path": null,
+									"one":"二级",
+									"children": [
+											{
+													"id": 104,
+													"authName": "商品列表",
+													"path": null,
+													"one":"三级",
+													"roleName": "嘻嘻"
+											}
+									]
+							}
+					]
+			},
+			{
+				"id": 303,
+				"roleName": "大堂经理",
+					"one":"一级",
+				"effective":1,
+					"roleDesc": "就是大堂经理",
+				"children": [
+						{
+							"roleName": "主管",
+							"id": 1011,
+								"authName": "商品管理",
+								"one":"二级",
+								"path": null,
+								"children": [
+										{
+												"id": 1014,
+												"authName": "商品列表",
+												"one":"三级",
+												"path": null,
+												"roleName": "嘻嘻"
+										}
+								]
+						}
+				]
+		},
+		{
+			"id": 301,
+			"roleName": "大堂主管",
+				"one":"一级",
+				"effective":1,
+				"roleDesc": "就是大堂主管",
+			"children": [
+					{
+						"roleName": "主管",
+						"id": 10111,
+							"authName": "商品管理",
+							"one":"二级",
+							"path": null,
+							"children": [
+									{
+											"id": 10411,
+											"authName": "商品列表",
+											"one":"三级",
+											"path": null,
+											"roleName": "嘻嘻"
+									}
+							]
+					}
+			]
+	},
+	{
+		"id": 3012,
+		"roleName": "股东",
+			"one":"一级",
+			"effective":1,
+			"roleDesc": "就是股东",
+		"children": [
+				{
+					"roleName": "主管",
+					"id": 101112,
+						"authName": "商品管理",
+						"one":"二级",
+						"path": null,
+						"children": [
+								{
+										"id": 104121,
+										"authName": "商品列表",
+										"one":"三级",
+										"path": null,
+										"roleName": "嘻嘻"
+								}
+						]
+				}
+		]
+},
+{
+	"id": 30122,
+	"roleName": "老板",
+			"one":"一级",
+			"effective":1,
+			"roleDesc": "就是老板",
+	"children": [
+			{
+				"roleName": "主管",
+				"id": 1011122,
+					"authName": "商品管理",
+					"one":"二级",
+					"path": null,
+					"children": [
+							{
+									"id": 1041212,
+									"authName": "商品列表",
+									"one":"三级",
+									"path": null,
+									"roleName": "嘻嘻"
+							}
+					]
+			}
+	]
+},
+{
+	"id": 3016,
+	"roleName": "经纪人",
+			"one":"一级",
+			"effective":1,
+			"roleDesc": "就是经纪人",
+	"children": [
+			{
+				"roleName": "主管",
+				"id": 101116,
+					"authName": "商品管理",
+					"one":"二级",
+					"path": null,
+					"children": [
+							{
+									"id": 104116,
+									"authName": "商品列表",
+									"one":"三级",
+									"path": null,
+									"roleName": "嘻嘻"
+							}
+					]
+			}
+	]
+}
+	],
+	"meta": {
+			"msg": "获取成功",
+			"status": 200
+	}
+}
