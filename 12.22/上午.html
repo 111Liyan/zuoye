@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>图层的添加与移除</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        body,
+        html,
+        #container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+
+        #container {
+            position: relative;
+        }
+
+        #tools {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .amap-logo {
+            display: none !important;
+        }
+
+        .amap-copyright {
+            display: none !important;
+        }
+
+        .marker {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: #fff;
+            padding: 4px 10px;
+            box-shadow: 1px 1px 1px rgba(10, 10, 10, .2);
+            white-space: nowrap;
+            font-size: 12px;
+            font-family: "";
+            background-color: #25A5F7;
+            border-radius: 3px;
+        }
+
+        button.btn {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <div class="input-card" style="width:24rem;">
+        <div class="input-item">
+            <button class="btn" id="add-satellite-layer" style="margin-right:1rem;">添加卫星图层</button>
+            <button class="btn" id="remove-satellite-layer">删除卫星图层</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="add-roadnet-layer" style="margin-right:1rem;">添加路网图层</button>
+            <button class="btn" id="remove-roadnet-layer">删除路网图层</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="traffic-show" style="margin-right:1rem;">添加交通</button>
+            <button class="btn" id="traffic-hide">删除交通</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="add-marker" style="margin-right:1rem;">添加标记</button>
+            <button class="btn" id="remove-marker">删除标记</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="add-circle" style="margin-right:1rem;">添加圆</button>
+            <button class="btn" id="remove-circle">删除圆</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="clickOn" style="margin-right:1rem;">绘制文本</button>
+            <button class="btn" id="clickOff">隐藏文本</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="start-edit" style="margin-right:1rem;">编辑线条</button>
+            <button class="btn" id="close-edit">停止编辑</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="show-line" style="margin-right:1rem;">绘制线条</button>
+            <button class="btn" id="hide-line">隐藏线条</button>
+        </div>
+        <div class="input-item">
+            <button class="btn" id="show" style="margin-right:1rem;">绘制窗口</button>
+            <button class="btn" id="hide">隐藏窗口</button>
+        </div>
+    </div>
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=77ba41d5743bb5500ba5102a254b73df"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript"
+        src="https://webapi.amap.com/maps?v=1.4.15&key=e8653883477c1e38d190463340771816&plugin=AMap.PolyEditor"></script>
+    <script>
+        //创建地图
+        var map = new AMap.Map('container', {
+            resizeEnable: true,
+            zoom: 11,
+            center: [112.52, 33.00]
+        });
+
+        // 构造点标记
+        var marker = new AMap.Marker({
+            icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+            position: [112.52, 33.00]
+        });
+
+        var circle = new AMap.Circle({
+            center: new AMap.LngLat(112.39, 33),  // 圆心位置
+            radius: 1000, // 圆半径
+            fillColor: 'red',   // 圆形填充颜色
+            strokeColor: '#fff', // 描边颜色
+            strokeWeight: 2 // 描边宽度
+        });
+
+
+        // 构造官方卫星、路网图层、交通
+        var satelliteLayer = new AMap.TileLayer.Satellite();
+        var roadNetLayer = new AMap.TileLayer.RoadNet();
+        trafficLayer = new AMap.TileLayer.Traffic({
+            zIndex: 10
+        });
+        //批量添加图层
+        map.add([satelliteLayer, roadNetLayer]);
+
+        //事件绑定
+        // 卫星
+        document.querySelector("#add-satellite-layer").onclick = function () {
+            map.add(satelliteLayer);
+        }
+
+        document.querySelector("#remove-satellite-layer").onclick = function () {
+            map.remove(satelliteLayer);
+        }
+        // 网图
+        document.querySelector("#add-roadnet-layer").onclick = function () {
+            map.add(roadNetLayer);
+        }
+
+        document.querySelector("#remove-roadnet-layer").onclick = function () {
+            map.remove(roadNetLayer);
+        }
+        // 交通
+        document.querySelector("#traffic-show").onclick = function () {
+            map.add(trafficLayer);
+        }
+
+        document.querySelector("#traffic-hide").onclick = function () {
+            map.remove(trafficLayer);
+        }
+        // 标记
+        document.querySelector("#add-marker").onclick = function () {
+            map.add(marker);
+            map.setFitView();
+        }
+        document.querySelector("#remove-marker").onclick = function () {
+            map.remove(marker);
+            map.setFitView();
+        }
+        // 添加圆
+        document.querySelector("#add-circle").onclick = function () {
+            map.add(circle);
+            map.setFitView();
+        }
+        document.querySelector("#remove-circle").onclick = function () {
+            map.remove(circle);
+            map.setFitView();
+        }
+        //在指定位置打开信息窗体
+        function openInfo () {
+            //构建信息窗体中显示的内容
+            var info = [];
+            info.push("<div style=\"background-color='red'\"><b>我是老六！！！</b>");
+            infoWindow = new AMap.InfoWindow({
+                content: info.join("<br/>")  //使用默认信息窗体框样式，显示信息内容
+            });
+            infoWindow.open(map, map.getCenter());
+        }
+        function closeInfo () {
+            infoWindow.close();
+        }
+
+        // 文本
+        document.querySelector("#clickOn").onclick = openInfo;
+        document.querySelector("#clickOff").onclick = closeInfo;
+
+        // 线条
+        var lineArr = [
+            [112.528904, 33.1],
+            [112.562122, 33.12],
+            [112.647271, 33.13],
+            [112.708258, 33.14]
+        ];
+        var polyline = new AMap.Polyline({
+            path: lineArr,          //设置线覆盖物路径
+            strokeColor: "#000", //线颜色
+            strokeWeight: 5,        //线宽
+            strokeStyle: "solid",   //线样式
+        });
+        var polyEditor = new AMap.PolyEditor(map, polyline)
+        // 线条
+        document.getElementById('start-edit').addEventListener('click', function (e) {
+            polyEditor.open();
+        });
+        document.getElementById('close-edit').addEventListener('click', function (e) {
+            polyEditor.close();
+        });
+        document.getElementById('show-line').addEventListener('click', function (e) {
+            map.add(polyline);
+        });
+        document.getElementById('hide-line').addEventListener('click', function (e) {
+            map.remove(polyline);
+        });
+
+        // 窗口
+        var infoMarker = new AMap.Marker({
+            position: [112.39, 33.1]
+        });
+        var infoWindow = new AMap.InfoWindow({ //创建信息窗体
+            isCustom: true,  //使用自定义窗体
+            content: '<div style="color:red;">我是你爸爸</div>', //信息窗体的内容可以是任意html片段
+            offset: new AMap.Pixel(16, -45)
+        });
+        var onMarkerClick = function (e) {
+            infoWindow.open(map, e.target.getPosition());//打开信息窗体
+        };
+        infoMarker.on('click', onMarkerClick); //绑定事件
+
+        document.getElementById('show').addEventListener('click', function (e) {
+            map.add(infoMarker);
+        });
+        document.getElementById('hide').addEventListener('click', function (e) {
+            map.remove(infoMarker);
+            infoWindow.close();
+        });
+    </script>
+</body>
+
+</html>
