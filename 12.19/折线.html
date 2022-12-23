@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" style="border: 1px solid #ccc;"></canvas>
+</body>
+</html>
+
+<script>
+
+    const cnv =document.getElementById('c')
+    const ctx =cnv.getContext('2d')
+
+    ctx.moveTo(50,200)
+    ctx.lineTo(100,50)
+    ctx.lineTo(200,150)
+    ctx.lineTo(200,50)
+    
+    ctx.stroke()
+</script>

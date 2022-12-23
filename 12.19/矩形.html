@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" style="border: 1px solid #ccc;"></canvas>
+</body>
+</html>
+<script>
+    const cnv =document.getElementById('c')
+    const ctx =cnv.getContext('2d')
+
+    // ctx.moveTo(50,50)
+    // ctx.lineTo(100,50)
+    // ctx.lineTo(200,120)
+    // ctx.lineTo(50,120)
+    // ctx.closePath(50,50)
+    // ctx.stroke()
+
+
+    //自动闭合
+    
+    // ctx.strokeStyle='pink'
+    // ctx.strokeRect(50,50,200,100) 
+
+    //自动填充矩形
+    //fillstyle属性
+    ctx.fillStyle='pink'
+    ctx.fillRect(50,50,200,100) 
+    
+
+    //产生描边和填充效果
+    ctx.fillStyle='red'
+    ctx.strokeRect(50,50,200,100)
+    ctx.fillStyle='#7FBA00'
+    ctx.fillRect(50,50,200,100)
+</script>

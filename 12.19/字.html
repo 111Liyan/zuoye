@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" style="border: 1px solid #ccc" width="400" height="300"></canvas>
+</body>
+</html>
+
+<script>
+    const cnv =document.getElementById('c')
+    const ctx =cnv.getContext('2d')
+
+    // ctx.font='60px Arial' 
+    // // ctx.strokeText('哈喽',30,90)
+    // ctx.fillText('你好',30,90)  
+
+    // console.log(ctx.measureText(text).width);  
+
+
+
+    ctx.moveTo(200,0)
+    ctx.lineTo(200,400)
+    ctx.strokeStyle='red'
+    
+    ctx.stroke()
+
+    ctx.font='30px Arial'
+
+    //横坐标开始对齐
+    ctx.textAlign = 'start'
+    ctx.fillText('你好 start',200,40)
+
+    //横坐标结束对齐
+    ctx.textAlign = 'end'
+    ctx.fillText('你好 end',200,100)
+
+    //左对齐
+    ctx.textAlign = 'left'
+    ctx.fillText('你好 left',200,160)
+
+    //右对齐
+    ctx.textAlign = 'right'
+    ctx.fillText('你好 right',200,220)
+
+    //居中对齐
+    ctx.textAlign = 'center'
+    ctx.fillText('你好 center',280,280)
+</script>

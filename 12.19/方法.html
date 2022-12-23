@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" style="border: 1px solid #ccc" width="400" height="300"></canvas>
+</body>
+</html>
+<script>
+    //调用方法
+    const cnv =document.getElementById('c')
+    const ctx =cnv.getContext('2d')
+
+    // ctx.strokeStyle='red'
+    // ctx.fillStyle='pink'
+
+    // ctx.rect(50,50,200,100)
+
+    // ctx.stroke()
+    // ctx.fill()
+
+
+    //清空矩形
+    // ctx.fillStyle='pink'   //填充颜色
+    // ctx.fillRect(50,50,200,200)   //填充矩形
+
+    // ctx.clearRect(60,60,180,90)  // 清空矩形
+
+
+    
+    //三角形
+
+    // ctx.moveTo(50,50)
+    // ctx.lineTo(200,50)
+    // ctx.lineTo(200,100)
+
+    // ctx.lineTo(50,50)
+
+    // ctx.stroke()
+
+    //手动闭合
+    // ctx.moveTo(50,50)
+    // ctx.lineTo(200,50)
+    // ctx.lineTo(200,100)
+
+    // // ctx.lineTo(50,50)
+    // //手动闭合
+    // ctx.closePath()
+
+    // ctx.lineJoin='round'
+    // ctx.lineWidth=20
+    // ctx.stroke()
+
+
+
+    //菱形
+    // ctx.moveTo(80,20)
+    // ctx.lineTo(150,20)
+    // ctx.lineTo(110,100)
+    // ctx.lineTo(50,100)
+    // ctx.lineTo(70,50)
+    // ctx.closePath()
+
+    // ctx.stroke()
+
+
+    
+
+    //圆形
+    // ctx.beginPath()
+    // ctx.arc(150,150,80,0,360 * Math.PI /180)
+    // ctx.closePath()
+
+    // ctx.stroke()
+
+
+    //半圆顺时针
+    // ctx.beginPath()
+    // ctx.arc(150,150,80,0,180 * Math.PI /180)
+    // ctx.closePath()
+
+    // ctx.stroke()
+
+    //半圆逆时针  两种方法
+    // ctx.beginPath()
+    // ctx.arc(150,100,80,0,Math.PI,1)
+    // ctx.closePath()
+
+    // ctx.stroke()
+
+    // ctx.beginPath()
+    // ctx.arc(150,100,80,0,180*Math.PI/180,true)
+    // ctx.closePath()
+
+    // ctx.stroke()
+
+    
+
+    //拐角
+    // ctx.moveTo(50,50)
+    // ctx.lineTo(200,50)
+    // ctx.lineTo(200,100)
+    // ctx.lineWidth=20
+    // ctx.lineJoin='bevel' //miter 默认值 ,round圆角,bevel斜角
+    // ctx.stroke()
+
+
+
+    //虚线
+    // ctx.lineWidth=20
+    // ctx.strokeStyle='pink'
+    
+    // ctx.moveTo(50,50)
+    // ctx.lineTo(200,50)
+    // ctx.setLineDash([10]) //直传一个参数，实现与空白都是10px
+    // ctx.stroke()
+
+    // ctx.beginPath()
+    // ctx.moveTo(50,100)
+    // ctx.lineTo(200,100)
+    // ctx.setLineDash([10,20])
+    // ctx.stroke()
+
+    // ctx.beginPath()
+    // ctx.moveTo(50,150)
+    // ctx.lineTo(200,150)
+    // ctx.setLineDash([10,20,5])
+    // ctx.stroke()    
+
+
+
+
+    // 外层矩形
+    ctx.moveTo(50,50)
+    ctx.lineTo(250,50)
+    ctx.lineTo(250,250)
+    ctx.lineTo(50,250)
+    ctx.closePath()
+
+    //内层矩形
+    ctx.moveTo(200,100)
+    ctx.lineTo(100,100)
+    ctx.lineTo(100,200)
+    ctx.lineTo(200,200)
+    ctx.closePath()
+    ctx.fill()
+</script>

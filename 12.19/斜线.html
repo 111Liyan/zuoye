@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="c" style="border: 1px solid #ccc;"></canvas>
+</body>
+</html>
+
+<script>
+    //单条线
+    // const cnv =document.getElementById('c')
+    // const ctx =cnv.getContext('2d')
+
+    // ctx.moveTo(0,0)
+    // ctx.lineTo(200,100)
+    // ctx.stroke()
+
+
+    //多条线
+    // const cnv =document.getElementById('c')
+    // const ctx =cnv.getContext('2d')
+
+    // ctx.moveTo(0,0)
+    // ctx.lineTo(200,100)
+    // ctx.stroke()
+    // ctx.lineWidth=20   
+    // ctx.strokeStyle='pink' 
+    // ctx.lineCap='round'   
+
+
+    // ctx.beginPath() 
+    // // ctx.strokeStyle='pink'
+    // ctx.moveTo(200,100.5)
+    // ctx.lineTo(200,300)
+    // ctx.stroke()
+
+     //第二条影响第一条样式
+     const cnv =document.getElementById('c')
+    const ctx =cnv.getContext('2d')
+
+    ctx.moveTo(0,0)
+    ctx.lineTo(200,100)
+    ctx.lineWidth=20   
+    ctx.strokeStyle='pink'  
+    ctx.stroke()
+
+
+    ctx.moveTo(200,100.5)
+    ctx.lineTo(200,300.5)
+    ctx.lineWidth=4
+    ctx.strokeStyle='red'
+    ctx.stroke()
+</script>
