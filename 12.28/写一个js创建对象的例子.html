@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		//1.构造函数模式
+		var obj2 = new Object();
+		obj2.name = 'tom';
+		obj2.age = 19;
+		obj2.sayName = function (name) {
+			this.name = name;
+		};
+		console.log(obj2.name);
+
+		obj2.sayName('jack');
+		console.log(obj2.name);
+
+		//2.对象字面量模式
+		var obj = {
+			name: 'tom',
+			age: 18,
+			sayName: function (name) {
+				this.name = name;
+			},
+		};
+
+		console.log(obj.name);
+
+		obj.sayName('jack');
+		console.log(obj.name);
+		// 3. 工厂模式
+
+		function creatPerson(name, age) {
+			var obj = {
+				name: name,
+				age: age,
+				sayName: function (name) {
+					this.name = name;
+				},
+			};
+			return obj;
+		}
+		var p = creatPerson('tom', 12);
+		console.log(p.name, p.age);
+
+		p.sayName('jack');
+		console.log(p.name, p.age);
+		// 4. 自定义构造函数模式
+
+		function Person(name, age) {
+			this.name = name;
+			this.age = age;
+			this.sayName = function (name) {
+				this.name = name;
+			};
+		}
+		var p = new Person('tom', 12);
+		p.sayName('jack');
+		console.log(p.name, p.age);
+		// 5. 构造函数+原型的组合模式
+		function Person2(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+		Person2.prototype.sayName = function (name) {
+			this.name = name;
+		};
+		var p2 = new Person2('tom', 12);
+		p2.sayName('jack');
+		console.log(p2.name, p2.age);
+	</script>
+</html>
