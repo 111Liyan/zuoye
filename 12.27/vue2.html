@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person = {
+            name: "张三",
+            age: 19
+        }
+        // Object.defineProperty的三个参数：代理的对象,属性名,方法
+        let newPerson = {}
+        Object.defineProperty(newPerson, "name", {
+            get() {
+                //get name
+                return person.name;
+            },
+            set(value) {
+                //set name
+                console.log('name');
+                person.name = value;
+            }
+        })
+
+        Object.defineProperty(newPerson, "age", {
+            configurable: true,
+            get() {
+                return person.age;
+            },
+            set(value) {
+                console.log('age');
+                person.age = value;
+            }
+        })
+    </script>
+</body>
+
+</html>
